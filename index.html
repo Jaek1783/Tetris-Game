@@ -11,7 +11,10 @@
     <div class="wrapper">
       <p class= "title">추억의 테트리스 게임</p>
       <p>HTML,CSS,순수자바스크립트로 클론코딩 + 개인 디자인</p>
-      <div class="score"><span>score :</span> 0</div>
+      <div class="scoreT">
+        <span>score :</span>
+        <span class="score"> 0</span>
+      </div>
       <div class="playground">
         <ul></ul>
         <div class="game-text">
@@ -24,20 +27,21 @@
           <p class = "howToGame">게임방법</p>
           <ol>
             <li>좌우 이동 : 방향키 &larr; , &rarr; 로 이동</li>
+            <li>모양 변경 : 방향키 &uarr; 로 변경 </li>
             <li>바로내리기 : 스페이스 바 사용</li>
-            <li>일시정지 : 일시정지 버튼 클릭</li>
-            <li>다시시작 : 재시작 버튼 클릭</li>
+            <li>일시정지/다시시작 : 일시정지 버튼 클릭</li>
+            <li>처음부터 : 재시작 버튼 클릭</li>
             <li>Reset(처음부터) : 새로고침 하세요</li>
           </ol>
         </div>
         <div class="btn">
-          <p>버튼 (게임을 시작하면 나타납니다.)</p>
+          <p>게임을 시작하면<br>일시정지 버튼이 나타납니다.</p>
           <ul>
-            <!-- <li>
-              <button class="restart">재시작</button>
-            </li> -->
             <li>
-              <button class="pause">일시정지 / 다시시작</button>
+              <button class="restart">재시작</button>
+            </li>
+            <li>
+              <button class="pause">일시정지</button>
             </li>
           </ul>
         </div>

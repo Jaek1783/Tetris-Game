@@ -3,7 +3,7 @@ const startBtn = document.querySelector(".fst");
 const playground = document.querySelector(".playground>ul");
 const gameText = document.querySelector(".game-text");
 const scoreDisplay = document.querySelector(".score");
-const restart = document.querySelector(".replay");
+const restart = document.querySelector(".restart");
 const pauseBtn = document.querySelector(".pause");
 // console.log(playground);
 // setting
@@ -149,21 +149,20 @@ function checkMatch(){
         child.remove();
         prependNewLine();
         score++;
-        scoreDisplay.innerText = score;
+        scoreDisplay.innerText = score*100;
       }
   });
     generateNewBlock();
 }
+// 새로운 블럭 만들기
 function generateNewBlock(){
   clearInterval(downInterval);
   downInterval = setInterval(()=>{
     moveBlock('top',1)
-  },200);
-
-
+  },250);
   const blockArray = Object.entries(blocks);
   const randomIndex = Math.floor(Math.random()*blockArray.length);
-// console.log();
+console.log(randomIndex);
   movingItem.type = blockArray[randomIndex][0];
   movingItem.top = 0;
   movingItem.left = 3;
@@ -172,6 +171,7 @@ function generateNewBlock(){
   renderBlocks();
 
 }
+// 게임판 좌우아래 벽 차단하기
 function checkEmpty(target){
   if(!target || target.classList.contains("seized")){
     return false;
@@ -189,12 +189,14 @@ function changeDirection(){
   direction === 3 ? tempMovingItem.direction =0 : tempMovingItem.direction +=1;
   renderBlocks();
 }
+// 블럭 자동 내리기
 function dropBlock(){
   clearInterval(downInterval);
   downInterval = setInterval(()=>{
     moveBlock("top",1);
   },10);
 }
+// 게임오버 시 작동
 function showGameoverText(){
   gameText.style.display = "flex"
   const gameT = document.querySelector(".gameT");
@@ -203,7 +205,7 @@ function showGameoverText(){
     gameT.innerText = "Game Over"
   }
 }
-// event.handling
+// event.handling 키보드 작동
 document.addEventListener("keydown", e =>{
   switch(e.keyCode){
     case 39:
@@ -236,6 +238,9 @@ document.addEventListener("keydown", e =>{
         gameText.style.display = "none"
         downInterval = setInterval(()=>{
           moveBlock('top',1)
-        },200);
+        },250);
     }
+  });
+  restart.addEventListener('click',()=>{
+    window.location.reload()
   });

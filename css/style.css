@@ -20,11 +20,14 @@ body{
   text-align:center;
 
 }
-.score{
+/* 스코어 */
+.scoreT{
   text-align: center;
   font-size:36px;
   margin-bottom: 2rem;
 }
+.score{}
+/* 게임판 */
 .playground{
   float:left;
   margin: 0 auto;
@@ -89,12 +92,11 @@ body{
 .btn{
   width:300px;
   padding: 0.5rem;
-  margin: 100px auto 0;
+  margin: 30px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border:1px solid #000;
 }
 .btn>ul{
   text-align:center;
