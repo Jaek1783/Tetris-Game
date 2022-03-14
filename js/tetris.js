@@ -34,23 +34,29 @@ const blocks = {
     [[1,2],[0,1],[2,1],[1,1]],
     [[2,1],[1,2],[1,0],[1,1]],
   ],
-  zee:[
+  lZee:[
     [[0,0],[1,0],[1,1],[2,1]],
     [[0,1],[1,0],[1,1],[0,2]],
     [[0,1],[1,1],[1,2],[2,2]],
     [[2,0],[2,1],[1,1],[1,2]],
   ],
+  rZee:[
+    [[0,1],[1,1],[1,0],[2,0]],
+    [[0,0],[0,1],[1,1],[1,2]],
+    [[0,2],[1,2],[1,1],[2,1]],
+    [[1,0],[1,1],[2,1],[2,2]],
+  ],
   elLeft:[
     [[0,0],[0,1],[1,1],[2,1]],
     [[1,0],[1,1],[1,2],[0,2]],
     [[0,1],[1,1],[2,1],[2,2]],
-    [[1,0],[2,0],[1,1],[1,2]],
+    [[1,0],[1,1],[1,2],[2,0]],
   ],
   elRight:[
-    [[1,0],[2,0],[1,1],[1,2]],
-    [[0,0],[0,1],[1,1],[2,1]],
-    [[0,2],[1,0],[1,1],[1,2]],
-    [[0,1],[1,1],[2,1],[2,2]],
+    [[0,1],[0,2],[1,1],[2,1]],
+    [[1,0],[1,1],[1,2],[2,2]],
+    [[2,0],[0,1],[1,1],[2,1]],
+    [[0,0],[1,0],[1,1],[1,2]],
   ],
 }
 const movingItem = {
@@ -73,7 +79,7 @@ startBtn.addEventListener("click",()=>{
   gameText.style.display = "none"
   startBtn.style.display = "none"
   pauseBtn.style.display = "block"
-  restart.style.display="block"
+
 });
 }
 function prependNewLine(){
@@ -191,10 +197,11 @@ function dropBlock(){
 }
 function showGameoverText(){
   gameText.style.display = "flex"
-}
-function pause(){
-gameText.style.display = "flex"
-clearInterval(downInterval);
+  const gameT = document.querySelector(".gameT");
+  console.log(gameT);
+  if(gameT != null){
+    gameT.innerText = "Game Over"
+  }
 }
 // event.handling
 document.addEventListener("keydown", e =>{
@@ -214,25 +221,21 @@ document.addEventListener("keydown", e =>{
     case 32:
       dropBlock();
       break;
-    case 13:
-      pause();
-      break;
   default:
     break;
   }
 });
-  restart.addEventListener("click",()=>{
-    playground.innerHTML = "";
-    gameText.style.display = "none"
-    init();
-    generateNewBlock();
-    scoreDisplay.innerText="0"
-
-  });
   pauseBtn.addEventListener("click",()=>{
-    gameText.style.display = "none"
-    downInterval = setInterval(()=>{
-      moveBlock('top',1)
-
-    },200);
+    const gameTextDisplay = gameText.style.display;
+          console.log(gameTextDisplay);
+    if(gameTextDisplay === "none"){
+      gameText.style.display = "flex"
+       clearInterval(downInterval)
+    }else{
+        clearInterval(downInterval)
+        gameText.style.display = "none"
+        downInterval = setInterval(()=>{
+          moveBlock('top',1)
+        },200);
+    }
   });

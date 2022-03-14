@@ -13,13 +13,20 @@ body{
   height:100%;
   overflow:hidden;
 }
+.wrapper{
+  width:650px;
+  margin: 0 auto;
+  padding-top:20px;
+  text-align:center;
 
+}
 .score{
   text-align: center;
   font-size:36px;
   margin-bottom: 2rem;
 }
 .playground{
+  float:left;
   margin: 0 auto;
   width:250px;
   position: relative;
@@ -54,7 +61,48 @@ body{
   color:#fff;
   font-size:50px;
 }
-.game-text > button{
+/* 게임방법 css */
+.howToGame{
+  font-size: 20px;
+  font-weight:bold;
+  padding-bottom:20px;
+}
+.Text{
+  height:480px;
+  padding:10px;
+  float:left;
+  margin-left: 20px;
+  border:1px solid #000;
+  display: inline-block;
+}
+.how{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.how>ol>li{
+    padding-bottom: 20px;
+}
+
+/* 버튼 css */
+.btn{
+  width:300px;
+  padding: 0.5rem;
+  margin: 100px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border:1px solid #000;
+}
+.btn>ul{
+  text-align:center;
+}
+.btn>ul>li{
+  display: inline-block;
+}
+button{
   width:100px;
   margin-top: 20px;
   padding:0.5rem;
@@ -65,26 +113,27 @@ body{
   text-align: center;
 }
 .pause{
+  width:150px;
   display: none;
 }
-.replay{
-  display:none;
-}
 .square{
-  background:black;
+  background:#e02670;
 }
 .tree{
-  background:blue;
+  background:#7026e0;
 }
 .bar{
-  background:red;
+  background:#2670e0;
 }
-.zee{
-  background:yellow;
+.lZee{
+  background:#26e038;
+}
+.rZee{
+  background:#d9e026;
 }
 .elLeft{
   background:#e09036;
 }
 .elRight{
-  background:green;
+  background:#26e0c8;
 }
