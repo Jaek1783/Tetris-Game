@@ -9,42 +9,33 @@
   </head>
   <body>
     <div class="wrapper">
-      <p class= "title">추억의 테트리스 게임</p>
-      <p>HTML,CSS,순수자바스크립트로 클론코딩 + 개인 디자인</p>
-      <div class="scoreT">
-        <span>score :</span>
-        <span class="score"> 0</span>
-      </div>
+      <!-- <p class= "title">추억의 테트리스 게임</p>
+      <p>HTML,CSS,순수자바스크립트로 클론코딩 + 개인 디자인</p> -->
       <div class="playground">
         <ul></ul>
         <div class="game-text">
           <p class = "gameT">Game Start</p>
-        <button class="fst">게임시작</button>
         </div>
       </div>
       <div class="Text">
+        <div class="scoreT">
+          <span>score :</span>
+          <span class="score"> 0</span>
+          <p class="nextT">next :</p>
+          <ul class="next">
+            <li><ul><li></li><li></li><li></li><li></li><li></li></ul></li>
+            <li><ul><li></li><li></li><li></li><li></li><li></li></ul></li>
+          </ul>
+        </div>
         <div class="how">
           <p class = "howToGame">게임방법</p>
           <ol>
             <li>좌우 이동 : 방향키 &larr; , &rarr; 로 이동</li>
             <li>모양 변경 : 방향키 &uarr; 로 변경 </li>
             <li>바로내리기 : 스페이스 바 사용</li>
-            <li>일시정지/다시시작 : 일시정지 버튼 클릭</li>
-            <li>처음부터 : 재시작 버튼 클릭</li>
-            <li>Reset(처음부터) : 새로고침 하세요</li>
           </ol>
         </div>
-        <div class="btn">
-          <p>게임을 시작하면<br>일시정지 버튼이 나타납니다.</p>
-          <ul>
-            <li>
-              <button class="restart">재시작</button>
-            </li>
-            <li>
-              <button class="pause">일시정지</button>
-            </li>
-          </ul>
-        </div>
+              <button class="play">Play</button>
       </div>
     </div>
     <script type="text/javascript" src="js/tetris.js"></script>

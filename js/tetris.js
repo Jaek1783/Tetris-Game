@@ -1,13 +1,11 @@
 // dom
-const startBtn = document.querySelector(".fst");
+const startBtn = document.querySelector(".play");
 const playground = document.querySelector(".playground>ul");
 const gameText = document.querySelector(".game-text");
 const scoreDisplay = document.querySelector(".score");
-const restart = document.querySelector(".restart");
-const pauseBtn = document.querySelector(".pause");
 // console.log(playground);
 // setting
-const game_rows = 20;
+const game_rows = 22;
 const game_cols = 10;
 
 // variables
@@ -66,7 +64,7 @@ const movingItem = {
   left:0,
 };
 
-
+// 보드판 만들기
 init()
 // functions
 function init(){
@@ -74,18 +72,21 @@ function init(){
   for (let i = 0; i < game_rows; i++){
     prependNewLine();
   }
+  let playClick = 0;
 startBtn.addEventListener("click",()=>{
+    playClick++;
+    // console.log(playClick);
   generateNewBlock();
   gameText.style.display = "none"
   startBtn.style.display = "none"
-  pauseBtn.style.display = "block"
+  // pauseBtn.style.display = "block"
 
 });
 }
 function prependNewLine(){
   const li = document.createElement("li");
   const ul = document.createElement("ul");
-  for (let j = 0; j < 10; j++){
+  for (let j = 0; j < game_cols; j++){
     const matrix = document.createElement("li");
     ul.prepend(matrix);
   }
@@ -155,22 +156,22 @@ function checkMatch(){
     generateNewBlock();
 }
 // 새로운 블럭 만들기
+
 function generateNewBlock(){
   clearInterval(downInterval);
   downInterval = setInterval(()=>{
     moveBlock('top',1)
   },250);
-  const blockArray = Object.entries(blocks);
-  const randomIndex = Math.floor(Math.random()*blockArray.length);
-console.log(randomIndex);
-  movingItem.type = blockArray[randomIndex][0];
-  movingItem.top = 0;
-  movingItem.left = 3;
-  movingItem.direction = 0;
-  tempMovingItem = { ...movingItem };
-  renderBlocks();
-
-}
+      const blockArray = Object.entries(blocks);
+      const randomBlock = Math.floor(Math.random()*blockArray.length);
+      movingItem.type = blockArray[randomBlock][0];
+      console.log(randomBlock);
+      movingItem.top = 0;
+      movingItem.left = 3;
+      movingItem.direction = 0;
+      tempMovingItem = { ...movingItem };
+      renderBlocks();
+    }
 // 게임판 좌우아래 벽 차단하기
 function checkEmpty(target){
   if(!target || target.classList.contains("seized")){
@@ -204,6 +205,7 @@ function showGameoverText(){
   if(gameT != null){
     gameT.innerText = "Game Over"
   }
+  startBtn.style.display = "inline-block"
 }
 // event.handling 키보드 작동
 document.addEventListener("keydown", e =>{
@@ -227,20 +229,21 @@ document.addEventListener("keydown", e =>{
     break;
   }
 });
-  pauseBtn.addEventListener("click",()=>{
-    const gameTextDisplay = gameText.style.display;
-          console.log(gameTextDisplay);
-    if(gameTextDisplay === "none"){
-      gameText.style.display = "flex"
-       clearInterval(downInterval)
-    }else{
-        clearInterval(downInterval)
-        gameText.style.display = "none"
-        downInterval = setInterval(()=>{
-          moveBlock('top',1)
-        },250);
-    }
-  });
-  restart.addEventListener('click',()=>{
-    window.location.reload()
-  });
+// 일시정지
+  // pauseBtn.addEventListener("click",()=>{
+  //   const gameTextDisplay = gameText.style.display;
+  //         console.log(gameTextDisplay);
+  //   if(gameTextDisplay === "none"){
+  //     gameText.style.display = "flex"
+  //      clearInterval(downInterval)
+  //   }else{
+  //       clearInterval(downInterval)
+  //       gameText.style.display = "none"
+  //       downInterval = setInterval(()=>{
+  //         moveBlock('top',1)
+  //       },250);
+  //   }
+  // });
+  // restart.addEventListener('click',()=>{
+  //   window.location.reload()
+  // });
