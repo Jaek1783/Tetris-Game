@@ -28,6 +28,9 @@ body{
   margin-bottom: 2rem;
 }
 .score{}
+.Hscore{
+  padding-top:20px;
+}
 /* 게임판 */
 .playground{
   float:left;

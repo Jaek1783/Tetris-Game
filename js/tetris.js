@@ -1,18 +1,20 @@
 // dom
 const startBtn = document.querySelector(".play");
+const speedUp= document.querySelector(".speedUp");
+const speedDown = document.querySelector(".speedDown");
 const playground = document.querySelector(".playground>ul");
 const gameText = document.querySelector(".game-text");
 const scoreDisplay = document.querySelector(".score");
-// console.log(playground);
+
 // setting
 const game_rows = 22;
 const game_cols = 10;
 
 // variables
 let score = 0;
-let duration = 500;
 let downInterval;
 let tempMovingItem;
+const duration=250;
 const blocks = {
   square:[
     [[0,0],[0,1],[1,0],[1,1]],
@@ -63,7 +65,6 @@ const movingItem = {
   top:0,
   left:0,
 };
-
 // 보드판 만들기
 init()
 // functions
@@ -72,15 +73,12 @@ function init(){
   for (let i = 0; i < game_rows; i++){
     prependNewLine();
   }
-  let playClick = 0;
 startBtn.addEventListener("click",()=>{
-    playClick++;
     // console.log(playClick);
   generateNewBlock();
   gameText.style.display = "none"
   startBtn.style.display = "none"
   // pauseBtn.style.display = "block"
-
 });
 }
 function prependNewLine(){
@@ -93,6 +91,8 @@ function prependNewLine(){
     li.prepend(ul);
     playground.prepend(li);
 }
+// 보드판 만들기 끝
+// 모양 돌리기
 function renderBlocks(moveType=""){
   const {type,direction,top,left}=tempMovingItem;
   const movingBlocks = document.querySelectorAll(".moving");
@@ -121,13 +121,14 @@ function renderBlocks(moveType=""){
         }
       },0);
       return true;
-
     }
   });
   movingItem.left = left;
   movingItem.top = top;
   movingItem.direction = direction;
 }
+// 모양돌리기 끝
+// 벽만들기
 function seizeBlock(){
   const movingBlocks = document.querySelectorAll(".moving");
   movingBlocks.forEach(moving =>{
@@ -141,6 +142,7 @@ function checkMatch(){
   const childNodes = playground.childNodes;
   childNodes.forEach(child => {
     let matched = true;
+
     child.children[0].childNodes.forEach(li => {
       if(!li.classList.contains("seized")){
         matched = false;
@@ -156,23 +158,25 @@ function checkMatch(){
     generateNewBlock();
 }
 // 새로운 블럭 만들기
-
 function generateNewBlock(){
   clearInterval(downInterval);
   downInterval = setInterval(()=>{
     moveBlock('top',1)
-  },250);
-      const blockArray = Object.entries(blocks);
-      const randomBlock = Math.floor(Math.random()*blockArray.length);
+  },duration);
+        const blockArray = Object.entries(blocks);
+        const randomBlock = Math.floor(Math.random()*blockArray.length);
+        const nextBlock = Math.floor(Math.random()*blockArray.length);
+        console.log(randomBlock);
+        console.log(nextBlock);
       movingItem.type = blockArray[randomBlock][0];
-      console.log(randomBlock);
       movingItem.top = 0;
       movingItem.left = 3;
       movingItem.direction = 0;
       tempMovingItem = { ...movingItem };
       renderBlocks();
     }
-// 게임판 좌우아래 벽 차단하기
+    // 새로운 블럭 만들기 끝
+// 한줄채우면 사라지기
 function checkEmpty(target){
   if(!target || target.classList.contains("seized")){
     return false;
@@ -181,6 +185,7 @@ function checkEmpty(target){
     return true;
   }
 }
+
 function moveBlock(moveType, amount){
   tempMovingItem[moveType] += amount;
   renderBlocks(moveType);
@@ -229,21 +234,3 @@ document.addEventListener("keydown", e =>{
     break;
   }
 });
-// 일시정지
-  // pauseBtn.addEventListener("click",()=>{
-  //   const gameTextDisplay = gameText.style.display;
-  //         console.log(gameTextDisplay);
-  //   if(gameTextDisplay === "none"){
-  //     gameText.style.display = "flex"
-  //      clearInterval(downInterval)
-  //   }else{
-  //       clearInterval(downInterval)
-  //       gameText.style.display = "none"
-  //       downInterval = setInterval(()=>{
-  //         moveBlock('top',1)
-  //       },250);
-  //   }
-  // });
-  // restart.addEventListener('click',()=>{
-  //   window.location.reload()
-  // });
