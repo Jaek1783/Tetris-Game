@@ -205,12 +205,12 @@ function dropBlock(){
 // 게임오버 시 작동
 function showGameoverText(){
   gameText.style.display = "flex"
-  const gameT = document.querySelector(".gameT");
+  const gameStart = document.querySelector(".gameStart");
+  const gameOver = document.querySelector(".gameOver");
+  gameStart.style.display = "none";
+  gameOver.style.display = "block";
   console.log(gameT);
-  if(gameT != null){
-    gameT.innerText = "Game Over"
-  }
-  startBtn.style.display = "inline-block"
+  // startBtn.style.display = "inline-block"
 }
 // event.handling 키보드 작동
 document.addEventListener("keydown", e =>{

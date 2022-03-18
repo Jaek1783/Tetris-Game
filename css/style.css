@@ -90,6 +90,28 @@ body{
   color:#fff;
   font-size:50px;
 }
+/* 게임시작 */
+.gameStart{
+  width:200px;
+  position:absolute;
+  top:40%;
+  left:10%;
+}
+.gameStart>img{
+  width:100%;
+}
+/* 게임오버 */
+.gameOver{
+  width:200px;
+  position:absolute;
+  top:40%;
+  left:10%;
+  display:none;
+}
+.gameOver>img{
+  width:100%;
+}
+
 /* 게임방법 css */
 .howToGame{
   font-size: 20px;
@@ -129,8 +151,8 @@ body{
 }
 button{
   width:100px;
-  margin-top: 20px;
-  padding:0.5rem;
+  margin-top: 175px;
+  padding:5px 0;
   color:#fff;
   background:salmon;
   border:none;
