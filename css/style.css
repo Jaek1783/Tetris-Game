@@ -118,7 +118,10 @@ a{
 .Replay{
   display:none;
 }
-
+.Replay>a{
+  width:100%;
+  display: inline-block;
+}
 /* 게임방법 css */
 .howToGame{
   font-size: 20px;
@@ -150,6 +153,7 @@ a{
   align-items: center;
   flex-direction: column;
 }
+
 .btn>ul{
   text-align:center;
 }
@@ -165,6 +169,10 @@ button{
   border:none;
   cursor: pointer;
   text-align: center;
+}
+button.clearScore{
+  width:120px;
+  margin-top: 1rem;
 }
 .pause{
   width:150px;

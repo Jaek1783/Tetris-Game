@@ -7,11 +7,15 @@ const playground = document.querySelector(".playground>ul");
 const gameText = document.querySelector(".game-text");
 const scoreText = document.querySelector(".score");
 const best = document.querySelector('.bestScore');
+const clearScore = document.querySelector('.clearScore');
 
 // setting
 const game_rows = 22;
 const game_cols = 10;
 best.innerText = localStorage.getItem('score');
+clearScore.addEventListener("click",()=>{
+  localStorage.removeItem("score");
+});
 // variables
 let score = 0;
 let downInterval;
