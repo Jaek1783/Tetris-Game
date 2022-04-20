@@ -1,15 +1,17 @@
 // dom
 const startBtn = document.querySelector(".play");
+const restartBtn = document.querySelector(".Replay");
 const speedUp= document.querySelector(".speedUp");
 const speedDown = document.querySelector(".speedDown");
 const playground = document.querySelector(".playground>ul");
 const gameText = document.querySelector(".game-text");
-const scoreDisplay = document.querySelector(".score");
+const scoreText = document.querySelector(".score");
+const best = document.querySelector('.bestScore');
 
 // setting
 const game_rows = 22;
 const game_cols = 10;
-
+best.innerText = localStorage.getItem('score');
 // variables
 let score = 0;
 let downInterval;
@@ -74,7 +76,6 @@ function init(){
     prependNewLine();
   }
 startBtn.addEventListener("click",()=>{
-    // console.log(playClick);
   generateNewBlock();
   gameText.style.display = "none"
   startBtn.style.display = "none"
@@ -103,7 +104,6 @@ function renderBlocks(moveType=""){
     const x = block[0] + left;
     const y  = block[1] + top;
     // 조건 ? 참일경우 : 거짓일 경우
-    // console.log(playground.childNodes[y]);
     const target = playground.childNodes[y] ? playground.childNodes[y].childNodes[0].childNodes[x] : null;
     const isAvailable = checkEmpty(target);
     if(isAvailable){
@@ -112,7 +112,7 @@ function renderBlocks(moveType=""){
       tempMovingItem = { ...movingItem };
       if(moveType === 'retry'){
         clearInterval(downInterval);
-        showGameoverText()
+        showGameoverText();
       }
       setTimeout(()=>{
         renderBlocks('retry');
@@ -121,8 +121,12 @@ function renderBlocks(moveType=""){
         }
       },0);
       return true;
+
     }
   });
+
+  // if(showGameoverText)
+  // console.log(showGameoverText);
   movingItem.left = left;
   movingItem.top = top;
   movingItem.direction = direction;
@@ -152,7 +156,8 @@ function checkMatch(){
         child.remove();
         prependNewLine();
         score++;
-        scoreDisplay.innerText = score*100;
+        let scoreDisplay = score*100;
+        scoreText.innerText = scoreDisplay;
       }
   });
     generateNewBlock();
@@ -166,8 +171,6 @@ function generateNewBlock(){
         const blockArray = Object.entries(blocks);
         const randomBlock = Math.floor(Math.random()*blockArray.length);
         const nextBlock = Math.floor(Math.random()*blockArray.length);
-        console.log(randomBlock);
-        console.log(nextBlock);
       movingItem.type = blockArray[randomBlock][0];
       movingItem.top = 0;
       movingItem.left = 3;
@@ -209,7 +212,13 @@ function showGameoverText(){
   const gameOver = document.querySelector(".gameOver");
   gameStart.style.display = "none";
   gameOver.style.display = "block";
-  console.log(gameT);
+  restartBtn.style.display = "block";
+  const prevScore = localStorage.getItem('score');
+  const maxScore = Math.max(scoreText.innerText,prevScore);
+  localStorage.setItem("score",maxScore);
+
+  // let today = new Date();
+  // console.log(today);
   // startBtn.style.display = "inline-block"
 }
 // event.handling 키보드 작동
