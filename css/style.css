@@ -13,7 +13,14 @@ li{}
 body{
   height:100%;
   padding-left:50px;
-  /* overflow:hidden; */
+  overflow:hidden;
+}
+@media screen and (max-width:680px) {
+  body{
+    height:100%;
+    padding-left:50px;
+    overflow:auto;
+  }
 }
 a{
   text-decoration: none;
@@ -205,7 +212,7 @@ button.clearScore{
 }
 /* 방향키 */
 .keyboard{
-    margin-top:280px;
+    margin-top:310px;
     padding-bottom:20px;
 }
 .arrow{
