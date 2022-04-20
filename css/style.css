@@ -224,8 +224,9 @@ button.clearScore{
 }
 .upArrow{
   width:210px;
-  padding-left: 7px;
-  cursor: pointer;
+  padding-left:7px;
+  cursor:pointer;
+  display: table-cell;
 }
 .downArrow{
   transform:rotate(270deg);
