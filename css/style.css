@@ -12,6 +12,7 @@ ul {
 li{}
 body{
   height:100%;
+  padding-left:50px;
   /* overflow:hidden; */
 }
 a{
