@@ -12,11 +12,14 @@ ul {
 li{}
 body{
   height:100%;
-  overflow:hidden;
+  /* overflow:hidden; */
 }
 a{
   text-decoration: none;
   color:#fff;
+}
+img{
+  width:100%;
 }
 .wrapper{
   width:650px;
@@ -198,4 +201,33 @@ button.clearScore{
 }
 .elRight{
   background:#26e0c8;
+}
+/* 방향키 */
+.keyboard{
+    margin-top:280px;
+    padding-bottom:20px;
+}
+.arrow{
+  width:62.5px;
+  cursor: pointer;
+  padding:5px;
+  display: table-cell;
+}
+.upArrow{
+  transform:rotate(90deg);
+}
+.downArrow{
+  transform:rotate(270deg);
+}
+.rightArrow{
+  transform:rotate(180deg);
+}
+.spaceBar{
+  width:200px;
+  padding:5px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.spaceBar>p{
+  display:table-cell;
 }

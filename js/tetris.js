@@ -225,6 +225,28 @@ function showGameoverText(){
   // console.log(today);
   // startBtn.style.display = "inline-block"
 }
+// event.handling 버튼 작동
+const leftArrow = document.querySelector('.leftArrow');
+const rightArrow = document.querySelector('.rightArrow');
+const upArrow = document.querySelector('.upArrow');
+const downArrow = document.querySelector('.downArrow');
+const spaceBar = document.querySelector('.spaceBar');
+leftArrow.addEventListener('click',()=>{
+  moveBlock("left",-1);
+});
+rightArrow.addEventListener('click',()=>{
+  moveBlock("left",1);
+});
+upArrow.addEventListener('click',()=>{
+  changeDirection();
+});
+downArrow.addEventListener('click',()=>{
+  moveBlock("top",1);
+});
+spaceBar.addEventListener('click',()=>{
+  dropBlock();
+});
+
 // event.handling 키보드 작동
 document.addEventListener("keydown", e =>{
   switch(e.keyCode){
