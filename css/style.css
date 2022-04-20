@@ -214,6 +214,7 @@ button.clearScore{
 .keyboard{
     margin-top:310px;
     padding-bottom:20px;
+    padding-left: 14px;
 }
 .arrow{
   width:62.5px;
@@ -222,7 +223,9 @@ button.clearScore{
   display: table-cell;
 }
 .upArrow{
-  transform:rotate(90deg);
+  width:210px;
+  padding-left: 7px;
+  cursor: pointer;
 }
 .downArrow{
   transform:rotate(270deg);
@@ -231,7 +234,7 @@ button.clearScore{
   transform:rotate(180deg);
 }
 .spaceBar{
-  width:200px;
+  width:210px;
   padding:5px;
   cursor: pointer;
   vertical-align: middle;
