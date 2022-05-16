@@ -25,5 +25,5 @@
 - localStorage를 이용하여 점수가 저장되고, 최고점수가 기록되게 만들었다.
 
 ## ✏️USE 라이브러리
-<img src="https://img.shields.io/badge/Photoshop-31A8FF?style=for-the-badge&logo=Adobe Photoshop&logoColor=white"> <img src="https://img.shields.io/badge/Pixabay-2EC66D?style=for-the-badge&logo=Pixabay&logoColor=white"> <img src="https://img.shields.io/badge/Atom-66595C?style=for-the-badge&logo=Atom&logoColor=white">
+<img src="https://img.shields.io/badge/Atom-66595C?style=for-the-badge&logo=Atom&logoColor=white"> <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=YouTube&logoColor=white">
 
