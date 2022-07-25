@@ -10,8 +10,8 @@ const best = document.querySelector('.bestScore');
 const clearScore = document.querySelector('.clearScore');
 
 // setting
-const game_rows = 22;
-const game_cols = 10;
+const game_rows = 30;
+const game_cols = 31;
 best.innerText = localStorage.getItem('score');
 clearScore.addEventListener("click",()=>{
   localStorage.removeItem("score");
@@ -125,7 +125,6 @@ function renderBlocks(moveType=""){
         }
       },0);
       return true;
-
     }
   });
 
@@ -225,27 +224,6 @@ function showGameoverText(){
   // console.log(today);
   // startBtn.style.display = "inline-block"
 }
-// event.handling 버튼 작동
-const leftArrow = document.querySelector('.leftArrow');
-const rightArrow = document.querySelector('.rightArrow');
-const upArrow = document.querySelector('.upArrow');
-const downArrow = document.querySelector('.downArrow');
-const spaceBar = document.querySelector('.spaceBar');
-leftArrow.addEventListener('click',()=>{
-  moveBlock("left",-1);
-});
-rightArrow.addEventListener('click',()=>{
-  moveBlock("left",1);
-});
-upArrow.addEventListener('click',()=>{
-  changeDirection();
-});
-downArrow.addEventListener('click',()=>{
-  moveBlock("top",1);
-});
-spaceBar.addEventListener('click',()=>{
-  dropBlock();
-});
 
 // event.handling 키보드 작동
 document.addEventListener("keydown", e =>{

@@ -4,16 +4,15 @@
   padding:0;
   border:0;
   line-height: 1;
-
 }
 ul {
   list-style: none;
 }
-li{}
 body{
   height:100%;
   padding-left:50px;
   overflow:hidden;
+  background-color: #2670e0;
 }
 @media screen and (max-width:680px) {
   body{
@@ -30,33 +29,25 @@ img{
   width:100%;
 }
 .wrapper{
-  width:650px;
+  width:1000px;
   margin: 0 auto;
   padding-top:20px;
   text-align:center;
+  display:flex;
 
-}
-/* 스코어 */
-.scoreT{
-  text-align: center;
-  font-size:36px;
-  margin-bottom: 2rem;
-}
-.score{}
-.Hscore{
-  padding-top:20px;
 }
 /* 게임판 */
 .playground{
   float:left;
   margin: 0 auto;
-  width:250px;
+  width:70%;
   position: relative;
 }
 /* 보드판 */
 .playground > ul{
-  width:300px;
+  width:100%;
   margin:0 auto;
+  background-color: #f4f8ff;
 }
 .playground > ul>li{
   width:100%;
@@ -68,7 +59,7 @@ img{
 .playground>ul>li>ul>li{
   width:25px;
   height:25px;
-  outline:1px solid #ccc;
+  outline:.5px solid #838383;
 }
 .nextT{
   padding-bottom: 20px;
@@ -110,7 +101,8 @@ img{
   width:200px;
   position:absolute;
   top:40%;
-  left:10%;
+  left:50%;
+  transform: translate(-50%);
 }
 .gameStart>img{
   width:100%;
@@ -120,7 +112,8 @@ img{
   width:200px;
   position:absolute;
   top:40%;
-  left:10%;
+  left:50%;
+  transform: translate(-50%);
   display:none;
 }
 .gameOver>img{
@@ -133,13 +126,25 @@ img{
   width:100%;
   display: inline-block;
 }
-/* 게임방법 css */
+
+/* 스코어 */
+.Text{
+  background-color: #fff;
+  padding:30px;
+}
+.scoreT{
+  text-align: center;
+  font-size:36px;
+  margin-bottom: 2rem;
+}
+.Hscore{
+  padding-top:20px;
+}
 .howToGame{
   font-size: 20px;
   font-weight:bold;
-  padding-bottom:20px;
+  padding:20px 0;
 }
-.Text{}
 .how{
   display: flex;
   justify-content: center;
@@ -176,7 +181,7 @@ button{
   margin-top: 175px;
   padding:5px 0;
   color:#fff;
-  background:salmon;
+  background:#2670e0;
   border:none;
   cursor: pointer;
   text-align: center;
@@ -196,10 +201,10 @@ button.clearScore{
   background:#7026e0;
 }
 .bar{
-  background:#2670e0;
+  background:#ae1d1d;
 }
 .lZee{
-  background:#26e038;
+  background:#13771d;
 }
 .rZee{
   background:#d9e026;
@@ -208,7 +213,7 @@ button.clearScore{
   background:#e09036;
 }
 .elRight{
-  background:#26e0c8;
+  background:rgb(41, 204, 182);
 }
 /* 방향키 */
 .keyboard{
