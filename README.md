@@ -1,6 +1,8 @@
 # Tetris-Game 클론코딩 하기
-![tetris 9ac43366abc34d8eec70](https://user-images.githubusercontent.com/73649967/168513023-84363351-331e-459a-9fe1-4281eca34e5d.gif)
+<img width="300" alt="테트리스게임GIF" src="https://user-images.githubusercontent.com/73649967/168513023-84363351-331e-459a-9fe1-4281eca34e5d.gif">
 
+## 이미지
+<img width="300" alt="테트리스게임 메인 이미지" src="https://github.com/Jaek1783/Tetris-Game/assets/73649967/5dfdb17d-3685-4e6f-824f-4744d0e57fad">  <img width="300" alt="테트리스게임중 이미지" src="https://github.com/Jaek1783/Tetris-Game/assets/73649967/348e34aa-5f7e-4f70-b169-0e1e03222869">
 
 ## 🗓️기간
 <2022.03.15 ~ 2022.03.18>
