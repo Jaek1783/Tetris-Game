@@ -11,7 +11,7 @@ const clearScore = document.querySelector('.clearScore');
 
 // setting
 const game_rows = 30;
-const game_cols = 31;
+const game_cols = 15;
 best.innerText = localStorage.getItem('score');
 clearScore.addEventListener("click",()=>{
   localStorage.removeItem("score");
